@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                    xcodebuild -workspace BankProject.xcworkspace -scheme BankProject -destination 'platform=iOS Simulator,name=iPhone 12' clean build test
+                    xcodebuild -workspace BankProject.xcodeproj -scheme BankProject -destination 'platform=iOS Simulator,name=iPhone 12' clean build test
                 '''
             }
         }
