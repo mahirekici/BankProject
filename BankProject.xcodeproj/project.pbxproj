@@ -49,6 +49,7 @@
 		CC57A03229E0C18300714B1E /* BankProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC57A03629E0C18300714B1E /* BankProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankProjectUITests.swift; sourceTree = "<group>"; };
 		CC57A03829E0C18300714B1E /* BankProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CCDADF3F29E1C24B004E358A /* Jenkinsfile.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Jenkinsfile.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +107,7 @@
 				CC57A01E29E0C18300714B1E /* Assets.xcassets */,
 				CC57A02029E0C18300714B1E /* LaunchScreen.storyboard */,
 				CC57A02329E0C18300714B1E /* Info.plist */,
+				CCDADF3F29E1C24B004E358A /* Jenkinsfile.md */,
 			);
 			path = BankProject;
 			sourceTree = "<group>";
