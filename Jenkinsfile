@@ -1,25 +1,26 @@
 pipeline {
-  agent any
-  stages {
-    stage('Checkout') {
-      steps {
-        checkout scm
-      }
+    agent any
+
+    triggers {
+        githubPush(
+            // Sadece "v" ile başlayan tag'leri yakala
+            // Örneğin: "v1.0", "v2.0", "v3.1", ...
+            // Diğer tag'ler yok sayılır.
+            regexpFilter: 'refs/tags/v.*'
+        )
     }
-    stage('Build') {
-      steps {
-        sh 'xcodebuild -workspace BankProject.xcworkspace -scheme BankProject build'
-      }
-    }
-  }
-  post {
-    success {
-      script {
-        def tags = sh(returnStdout: true, script: 'git tag').trim().split('\\n')
-        for (def tag in tags) {
-          sh "xcodebuild -workspace BankProject.xcworkspace -scheme BankProject archive -archivePath BankProject.xcarchive -allowProvisioningUpdates -configuration Release -quiet -archivePath BankProject-${tag}.xcarchive -allowProvisioningUpdates -archivePath BankProject-${tag}.xcarchive -allowProvisioningUpdates -archivePath BankProject-${tag}.xcarchive -allowProvisioningUpdates -archivePath BankProject-${tag}.xcarchive -allowProvisioningUpdates -archivePath BankProject-${tag}.xcarchive -allowProvisioningUpdates -archivePath BankProject-${tag}.xcarchive -allowProvisioningUpdates -archivePath BankProject-${tag}.xcarchive -allowProvisioningUpdates -archivePath BankProject-${tag}.xcarchive -allowProvisioningUpdates"
+
+    stages {
+        stage('Build') {
+            steps {
+                // Projenin derleme işlemleri
+            }
         }
-      }
+        stage('Test') {
+            steps {
+                // Test işlemleri
+            }
+        }
+        // Diğer aşamalar...
     }
-  }
 }
