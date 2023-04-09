@@ -13,7 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        //boşfhrtn dfbdfbffwefegweg sdsd sdvdsv s d sdeveeev
+        //boşfhrtn dfbdfbffwefegweg sdsd sdvdsv s d sdeveeevxc xc xc xc
     }
 
 
