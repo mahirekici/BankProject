@@ -1,23 +1,17 @@
 pipeline {
-    agent any
-    stages {
-        stage('Checkout') {
-            steps {
-                checkout([$class: 'GitSCM',
-                    branches: [[name: '*/tags/*']],
-                    doGenerateSubmoduleConfigurations: false,
-                    extensions: [[$class: 'SubmoduleOption', disableSubmodules: false, parentCredentials: true, recursiveSubmodules: true, reference: '', trackingSubmodules: false]],
-                    submoduleCfg: [],
-                    userRemoteConfigs: [[url: 'https://github.com/mahirekici/BankProject.git']]
-                ])
-            }
-        }
-        stage('Build') {
-            steps {
-                sh '''
-                    xcodebuild -workspace BankProject.xcodeproj -scheme BankProject -destination 'platform=iOS Simulator,name=iPhone 12' clean build test
-                '''
-            }
-        }
+  agent {
+    label 'macos'
+  }
+  stages {
+    stage('Checkout') {
+      steps {
+        git branch: 'main', url: 'https://github.com/mahirekici/BankProject'
+      }
     }
+    stage('Build') {
+      steps {
+        sh 'xcodebuild -workspace BankProject.xcworkspace -scheme BankProject build'
+      }
+    }
+  }
 }
